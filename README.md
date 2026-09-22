@@ -6,7 +6,7 @@
 go mod download # Use Proxy If you are in China!
 ```
 
-If you are in China Mainland, please check: https://goproxy.cn/ for golang dependency download proxy setting guide.
+If you are in China Mainand, please check: https://goproxy.cn/ for golang dependency download proxy setting guide.
 
 ## Compile
 
